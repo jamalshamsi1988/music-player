@@ -1,3 +1,13 @@
+@import "~bootstrap/scss/bootstrap";
+
+@import "./variables";
+@import "./header";
+
+
+
 body{
-    background-color: gold;
+  background-color: black;
+  color: white;
+  word-spacing: 0.2rem;
+  
 }
