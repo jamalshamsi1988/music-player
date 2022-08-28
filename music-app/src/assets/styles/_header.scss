@@ -1,13 +1,26 @@
 header{
-    background-color: liner-gradient(180deg,#333333 0%,#23352A 100%);
+    background: linear-gradient(180deg,#333333 0%,#23352A 100%);
     height: 40vh;
     .music-cover{
         width: 23rem;
         height: 23rem;
         border-radius: 50%;
-        background: linear-gradient(273.39deg,#212121 12.49%,#242424);
+        background: linear-gradient(273.39deg,#212121 12.49%,#242424 12.49%,#32754A 90.33%);
         box-shadow: -2px 13px 45px -24px rgba(242,242,242,0.3);
-        margin-right: 2rem;
-        background-size: cover;
+        margin: 2rem; 
+        background-size:cover;
+        .player-svg{
+            margin-top:7rem ;
+      
+        }
+    }
+    .music-description{
+        h1{
+            font-size: 3rem;
+        }
+        h2{
+            font-size: 1.5rem;
+            line-height: 250%;
+        }
     }
 }
