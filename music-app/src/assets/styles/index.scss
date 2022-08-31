@@ -2,6 +2,7 @@
 
 @import "./variables";
 @import "./header";
+@import "./sideBar";
 
 
 
@@ -10,4 +11,8 @@ body{
   color: white;
   word-spacing: 0.2rem;
   
+}
+
+main{
+  height: 60vh;
 }

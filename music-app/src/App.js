@@ -4,13 +4,20 @@ import Main from "./Components/Main";
 import SideBar from "./Components/SideBar";
 import "./assets/styles/index.scss";
 
-
 function App() {
   return (
     <div>
       <Header />
-      <Main />
-      <SideBar />
+      <main className="container">
+        <section className="row">
+          <section className="col-md-4">
+            <SideBar />
+          </section>
+          <section className="col-md-8">
+            <Main />
+          </section>
+        </section>
+      </main>
     </div>
   );
 }
