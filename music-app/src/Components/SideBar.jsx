@@ -1,8 +1,8 @@
 import logo from "./../assets/img/right-img.jpg";
 const SideBar = () => {
     return (
-      <aside>
-        <article className="sidebar-logo d-flex">
+      <aside className="h-100 d-flex flex-column justify-content-around">
+        <article className="sidebar-logo d-flex align-items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="70"
@@ -19,7 +19,7 @@ const SideBar = () => {
               d="M0 11.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 .5 7H8a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 .5 3H8a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z"
             />
           </svg>
-          <h2>Music player</h2>
+          <h2 className="px-3">MusicPlayer</h2>
         </article>
         <nav>
           <ul>
