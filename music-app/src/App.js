@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./Components/Header";
-import Main from "./Components/Main";
+import Main from "./Components/main/Main";
 import SideBar from "./Components/SideBar";
 import "./assets/styles/index.scss";
 

@@ -3,7 +3,7 @@
 @import "./variables";
 @import "./header";
 @import "./sideBar";
-
+@import "./main";
 
 
 body{
@@ -12,6 +12,15 @@ body{
   word-spacing: 0.2rem;
   
 }
+
+a {
+  transition: all .3s ease;
+  &:hover{
+    color:rgb(13, 221, 228)!important;
+    cursor: pointer;
+  }
+}
+
 
 main{
   height: 60vh;

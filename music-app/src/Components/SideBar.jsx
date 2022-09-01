@@ -1,7 +1,7 @@
 import logo from "./../assets/img/right-img.jpg";
 const SideBar = () => {
     return (
-      <aside className="h-100 d-flex flex-column justify-content-around">
+      <aside className="h-100 px-3 d-flex flex-column justify-content-around">
         <article className="sidebar-logo d-flex align-items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"

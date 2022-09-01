@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <header>
       <article className="container h-100">
-        <article className="h-100 d-flex align-items-center">
+        <article className="h-100 d-flex align-items-center ">
           <section
             className="music-cover  d-flex justify-content-center"
             style={{ backgroundImage: `url(${musicImg})` }}

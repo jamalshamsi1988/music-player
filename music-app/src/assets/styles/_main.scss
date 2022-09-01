@@ -1,0 +1,31 @@
+main{
+.music-item{
+    padding: 1rem;
+    position: relative;
+   &::after{
+content: "";
+display: block;
+background-color: aqua;
+height: 4px;
+width: 100%;
+position: absolute;
+top: 100%;
+    }
+    .music-cover{
+        border-radius: 50%;
+        height: 10rem;
+        width: 10rem;
+        background-color: red;
+        background-size: cover;
+    }
+    .music-desc{
+        flex:1;
+        padding-left: 1rem;
+    }
+}
+
+
+
+
+
+}
