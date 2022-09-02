@@ -1,16 +1,16 @@
-import coverimg from "./../../assets/img/image-background1.jpg";
 
 
-const MusicItem = () => {
+
+const MusicItem = ({cover,name,artist}) => {
     return (
       <article className="music-item d-flex align-items-center">
         <section
           className="music-cover"
-          style={{ backgroundImage: `url(${coverimg})` }}
+          style={{ backgroundImage: `url(${cover})` }}
         ></section>
         <section className="music-desc">
-          <h3>Name of singer</h3>
-          <h5>Name of song</h5>
+          <h3>{artist}</h3>
+          <h5>{name}</h5>
         </section>
         <section className="music-options d-flex">
           <span className="px-3">2:45</span>
