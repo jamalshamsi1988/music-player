@@ -1,9 +1,16 @@
 
 
 
-const MusicItem = ({cover,name,artist}) => {
+const MusicItem = ({currentSong, setCurrentSong,songs,cover,name,artist,id}) => {
+
+  const checkActiveSong=()=>{
+    const activeSong=songs.filter(item=>item.id===id)
+    setCurrentSong(activeSong);
+  }
     return (
-      <article className="music-item d-flex align-items-center">
+      <article 
+      onClick={checkActiveSong}
+      className="music-item d-flex align-items-center">
         <section
           className="music-cover"
           style={{ backgroundImage: `url(${cover})` }}
