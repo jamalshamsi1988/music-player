@@ -1,10 +1,10 @@
 import MusicItem from "./MusicItem";
 import { useState } from "react";
-import musicList from "../../musics";
 
 
-const Main = () => {
-   const [songs,setSongs]=useState(musicList());
+
+const Main = ({songs}) => {
+   
     return (
       <main>
         {songs.map((item) => (

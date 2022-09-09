@@ -1,7 +1,7 @@
 import logo from "./../assets/img/right-img.jpg";
 import musicImg from "./../assets/img/image-background1.jpg";
 
-const Header = () => {
+const Header = ({ audioHandler, setAudioHandler}) => {
   return (
     <header>
       <article className="container h-100">
@@ -62,7 +62,7 @@ const Header = () => {
                   <path d="M10.205 12.456A.5.5 0 0 0 10.5 12V4a.5.5 0 0 0-.832-.374l-4.5 4a.5.5 0 0 0 0 .748l4.5 4a.5.5 0 0 0 .537.082z" />
                 </svg>
               </button>
-              <button className="btn">
+              <button className="btn" onClick={() => setAudioHandler(!audioHandler)}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="30"

@@ -1,14 +1,14 @@
 main{
 
-.music-item{
-    padding: 1rem;
+.music-item{ 
+    padding: 0.8rem;
     position: relative;
    &::after{
 content: "";
 display: block;
 background-color: aqua;
 height: 4px;
-width: 100%;
+width: 98%;
 position: absolute;
 top: 100%;
     }
@@ -24,9 +24,5 @@ top: 100%;
         padding-left: 1rem;
     }
 }
-
-
-
-
 
 }
