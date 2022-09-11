@@ -1,27 +1,48 @@
-import React,{ useState , useRef , useEffect} from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Header from "./Components/Header";
 import Main from "./Components/main/Main";
 import SideBar from "./Components/SideBar";
 import musicList from "./musics";
+import musicImg from "././assets/img/image-background1.jpg";
 import "./assets/styles/index.scss";
-
 
 function App() {
   const [songs, setSongs] = useState(musicList());
-  const [audioHandler , setAudioHandler]=useState(false);
-  const [currentSong, setCurrentSong] = useState([]);
+  const [audioHandler, setAudioHandler] = useState(false);
+  const [currentSong, setCurrentSong] = useState([
+    {
+      id: 0,
+      name: "Music Name",
+      artist: "Artist Name",
+      audio:
+        "https://dl.musicya.ir/1401/06/11/Omid Ameri - Khoon Sard [128].mp3",
+      cover: musicImg,
+      active: false,
+    },
+  ]);
 
-  const audioRef=useRef();
-useEffect(() => {
-  if (audioHandler) audioRef.current.play();
-   else audioRef.current.pause();
-} , [audioHandler]);
+  const audioRef = useRef();
 
+  useEffect(() => {
+    const playPromis = audioRef.current.play();
+    if (playPromis !== undefined) {
+      playPromis
+        .then(() => {
+          if (audioHandler) audioRef.current.play();
+          else audioRef.current.pause();
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [audioHandler , currentSong]);
 
   return (
     <div>
-      <Header audioHandler={audioHandler} setAudioHandler={setAudioHandler} />
-      <audio ref={audioRef} src={songs[0].audio}></audio>
+      <Header
+        currentSong={currentSong}
+        audioHandler={audioHandler}
+        setAudioHandler={setAudioHandler}
+      />
+      <audio ref={audioRef} src={currentSong[0].audio}></audio>
       <main className="container">
         <section className="row">
           <section className="col-md-4 px-0">

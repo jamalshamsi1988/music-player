@@ -12,12 +12,11 @@ export default function musicList() {
       cover:
         "https://musicya.ir/wp-content/uploads/2022/09/Omid%20Ameri%20-%20Khoon%20Sard.jpg",
       active: true,
-
     },
     {
       id: uuidv4(),
-      name: "Khoon Sard",
-      artist: "Omid Ameri",
+      name: "Namadari",
+      artist: "Saman Yasin",
       audio:
         "https://dl.musicya.ir/1401/06/11/Saman Yasin - Namadari [128].mp3",
       cover:
@@ -26,18 +25,17 @@ export default function musicList() {
     },
     {
       id: uuidv4(),
-      name: "Khoon Sard",
-      artist: "Omid Ameri",
-      audio:
-        "https://dl.musicya.ir/1401/06/09/Mohsen Yeganeh - Azab [128].mp3" ,
+      name: "Azab",
+      artist: "Mohsen Yeganeh",
+      audio: "https://dl.musicya.ir/1401/06/09/Mohsen Yeganeh - Azab [128].mp3",
       cover:
         "https://musicya.ir/wp-content/uploads/2022/08/Mohsen%20Yeganeh%20-%20Azab.jpg",
       active: false,
     },
     {
       id: uuidv4(),
-      name: "Khoon Sard",
-      artist: "Omid Ameri",
+      name: "Del Bastim ",
+      artist: "Alireza Talischi",
       audio:
         "https://dl.musicya.ir/1401/05/25/Alireza Talischi - Del Bastim [128].mp3",
       cover:

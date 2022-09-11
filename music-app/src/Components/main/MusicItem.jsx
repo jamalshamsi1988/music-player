@@ -12,8 +12,8 @@ const MusicItem = ({currentSong, setCurrentSong,songs,cover,name,artist,id}) => 
       onClick={checkActiveSong}
       className="music-item d-flex align-items-center">
         <section
-          className="music-cover"
-          style={{ backgroundImage: `url(${cover})` }}
+          className="music-cover "
+          style={{ backgroundImage: `url(${cover})`  , cursor:"pointer" }}
         ></section>
         <section className="music-desc">
           <h3>{artist}</h3>

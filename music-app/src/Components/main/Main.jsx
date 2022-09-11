@@ -8,6 +8,7 @@ const Main = ({ currentSong, setCurrentSong, songs }) => {
     <main>
       {songs.map((item) => (
         <MusicItem
+        key={item.id}
           cover={item.cover}
           name={item.name}
           artist={item.artist}
