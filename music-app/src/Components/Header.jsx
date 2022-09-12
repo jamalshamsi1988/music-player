@@ -1,7 +1,34 @@
+import { useState } from "react";
 import logo from "./../assets/img/right-img.jpg";
 import musicImg from "./../assets/img/image-background1.jpg";
+import { IconName } from "react-icons/fa";
+import { BsStar, BsStarFill } from "react-icons/bs";
 
-const Header = ({ audioHandler, setAudioHandler, currentSong }) => {
+
+const Header = ({ audioHandler, setAudioHandler,setCurrentSong, currentSong ,songFullTime,songCurrentTime ,audioRef ,songs }) => {
+
+  const [favorite,setFavorite]=useState(false);
+
+  const setCleanTime=(time)=>{
+    return `${Math.floor(time / 60)}:${("0" + Math.floor(time % 60)).slice(-2)}`;
+  }
+const getNext=()=>{
+const index=songs.findIndex(item => item.id === currentSong[0].id);
+setCurrentSong([songs[index + 1]]);
+if(songs.indexOf(currentSong[0]) === songs.length-1){
+  setCurrentSong([songs[0]]);
+}
+}
+
+const getBack=()=>{
+  const index=songs.findIndex(item=> item.id === currentSong[0].id);
+  setCurrentSong([songs[index-1]]);
+  if (songs.indexOf(currentSong[0]) <= 0) {
+    setCurrentSong([songs[songs.length - 1]]);
+  }
+
+}
+  
   return (
     <header>
       <article className="container h-100">
@@ -45,26 +72,45 @@ const Header = ({ audioHandler, setAudioHandler, currentSong }) => {
                 <h1>{currentSong[0].name}</h1>
                 <h2>{currentSong[0].artist}</h2>
               </section>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="30"
-                height="30"
-                fill="currentColor"
-                viewBox="0 0 16 16"
+              <span
+                onClick={() => setFavorite(!favorite)}
+                className="btn"
+                style={{ border: "none", color: "white" }}
               >
-                <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
-              </svg>
+                {favorite ? <BsStarFill size="2rem" /> : <BsStar size="2rem" />}
+
+                {/* <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="30"
+                  height="30"
+                  fill="currentColor"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
+                </svg> */}
+              </span>
             </section>
             <section className="music-range">
               <section className="d-flex justify-content-between">
-                <span className="current-time">00:35</span>
-                <span className="full-time">03:35</span>
+                <span className="current-time">
+                  {setCleanTime(songCurrentTime)}
+                </span>
+                <span className="full-time">{setCleanTime(songFullTime)}</span>
               </section>
 
-              <input className="w-100" type="range" />
+              <input
+                className="w-100 btn"
+                type="range"
+                min={0}
+                max={songFullTime}
+                value={songCurrentTime}
+                onChange={(e) =>
+                  (audioRef.current.currentTime = e.target.value)
+                }
+              />
             </section>
             <section className="music-nav">
-              <button className="btn">
+              <button className="btn" onClick={getBack}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="30"
@@ -104,7 +150,7 @@ const Header = ({ audioHandler, setAudioHandler, currentSong }) => {
                   </svg>
                 )}
               </button>
-              <button className="btn">
+              <button className="btn" onClick={getNext}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="30"

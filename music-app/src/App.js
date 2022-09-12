@@ -20,6 +20,8 @@ function App() {
       active: false,
     },
   ]);
+  const [songCurrentTime, setSongCurrentTime] = useState();
+  const [songFullTime, setSongFullTime] = useState();
 
   const audioRef = useRef();
 
@@ -33,14 +35,26 @@ function App() {
         })
         .catch((err) => console.log(err));
     }
+
+    setInterval(() => {
+      setSongCurrentTime(audioRef.current.currentTime);
+    }, 1000);
+
+setSongFullTime(audioRef.current.duration);
+
   }, [audioHandler , currentSong]);
 
   return (
     <div>
       <Header
         currentSong={currentSong}
+        setCurrentSong={setCurrentSong}
         audioHandler={audioHandler}
         setAudioHandler={setAudioHandler}
+        songCurrentTime={songCurrentTime}
+        songFullTime={songFullTime}
+        audioRef={audioRef}
+        songs={songs}
       />
       <audio ref={audioRef} src={currentSong[0].audio}></audio>
       <main className="container">
