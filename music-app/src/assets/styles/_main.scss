@@ -1,8 +1,23 @@
+@keyframes music-active-animate{
+
+    from{
+        transform: rotate(0deg);
+    }
+    
+    from{
+        transform: rotate(-360deg);
+    }
+}
+
 main{
 
 .music-item{ 
     padding: 0.8rem;
     position: relative;
+    .active{
+            animation: music-active-animate 5s linear;
+            transition: all .3s ;
+        }
    &::after{
 content: "";
 display: block;
@@ -18,6 +33,7 @@ top: 100%;
         width: 10rem;
         background-color: red;
         background-size: cover;
+        
     }
     .music-desc{
         flex:1;

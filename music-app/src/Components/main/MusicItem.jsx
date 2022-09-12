@@ -1,19 +1,21 @@
+import { memo } from "react";
 
 
 
-const MusicItem = ({currentSong, setCurrentSong,songs,cover,name,artist,id}) => {
+const MusicItem = ({currentSong, setCurrentSong,songs,cover,name,artist,id , audioHandler}) => {
 
   const checkActiveSong=()=>{
     const activeSong=songs.filter(item=>item.id===id)
     setCurrentSong(activeSong);
   }
     return (
-      <article 
-      onClick={checkActiveSong}
-      className="music-item d-flex align-items-center">
+      <article
+        onClick={checkActiveSong}
+        className="music-item d-flex align-items-center"
+      >
         <section
-          className="music-cover "
-          style={{ backgroundImage: `url(${cover})`  , cursor:"pointer" }}
+          className={`music-cover ${(currentSong[0].id === id && audioHandler) ? "active" : " " }`}
+          style={{ backgroundImage: `url(${cover})`, cursor: "pointer" }}
         ></section>
         <section className="music-desc">
           <h3>{artist}</h3>
@@ -36,4 +38,4 @@ const MusicItem = ({currentSong, setCurrentSong,songs,cover,name,artist,id}) => 
     );
 }
  
-export default MusicItem;
+export default memo(MusicItem);

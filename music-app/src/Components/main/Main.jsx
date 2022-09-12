@@ -1,14 +1,15 @@
 import MusicItem from "./MusicItem";
+import { memo } from 'react';
 
 
 
 
-const Main = ({ currentSong, setCurrentSong, songs }) => {
+const Main = ({ currentSong, setCurrentSong, songs, audioHandler }) => {
   return (
     <main>
       {songs.map((item) => (
         <MusicItem
-        key={item.id}
+          key={item.id}
           cover={item.cover}
           name={item.name}
           artist={item.artist}
@@ -16,10 +17,11 @@ const Main = ({ currentSong, setCurrentSong, songs }) => {
           songs={songs}
           currentSong={currentSong}
           setCurrentSong={setCurrentSong}
+          audioHandler={audioHandler}
         />
       ))}
     </main>
   );
 };
  
-export default Main;
+export default memo(Main);

@@ -1,4 +1,5 @@
 import logo from "./../assets/img/right-img.jpg";
+import { memo } from 'react';
 const SideBar = () => {
   return (
     <aside className="h-100 px-3 d-flex flex-column justify-content-around">
@@ -134,4 +135,4 @@ const SideBar = () => {
   );
 };
 
-export default SideBar;
+export default memo(SideBar);

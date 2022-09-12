@@ -38,9 +38,9 @@ function App() {
 
     setInterval(() => {
       setSongCurrentTime(audioRef.current.currentTime);
+      setSongFullTime(audioRef.current.duration);
     }, 1000);
 
-setSongFullTime(audioRef.current.duration);
 
   }, [audioHandler , currentSong]);
 
@@ -67,6 +67,7 @@ setSongFullTime(audioRef.current.duration);
               songs={songs}
               currentSong={currentSong}
               setCurrentSong={setCurrentSong}
+              audioHandler={audioHandler}
             />
           </section>
         </section>
