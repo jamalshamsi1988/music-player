@@ -44,6 +44,14 @@ function App() {
 
   }, [audioHandler , currentSong]);
 
+  const getNext = () => {
+    const index = songs.findIndex((item) => item.id === currentSong[0].id);
+    setCurrentSong([songs[index + 1]]);
+    if (songs.indexOf(currentSong[0]) === songs.length - 1) {
+      setCurrentSong([songs[0]]);
+    }
+  };
+
   return (
     <div>
       <Header
@@ -55,8 +63,10 @@ function App() {
         songFullTime={songFullTime}
         audioRef={audioRef}
         songs={songs}
+        setSongs={setSongs}
       />
-      <audio ref={audioRef} src={currentSong[0].audio}></audio>
+      <audio ref={audioRef} src={currentSong[0].audio}
+      onEnded={getNext}></audio>
       <main className="container">
         <section className="row">
           <section className="col-md-4 px-0">

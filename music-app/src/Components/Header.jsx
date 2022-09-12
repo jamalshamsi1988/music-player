@@ -5,7 +5,7 @@ import { IconName } from "react-icons/fa";
 import { BsStar, BsStarFill } from "react-icons/bs";
 
 
-const Header = ({ audioHandler, setAudioHandler,setCurrentSong, currentSong ,songFullTime,songCurrentTime ,audioRef ,songs }) => {
+const Header = ({ audioHandler, setAudioHandler,setCurrentSong, currentSong ,songFullTime,songCurrentTime ,audioRef ,songs,setSongs }) => {
 
   const [favorite,setFavorite]=useState(false);
 
@@ -28,7 +28,18 @@ const getBack=()=>{
   }
 
 }
-  
+  const addToFavList=()=>{
+    const filteredSongs= songs.map(item=>{
+      if(item.id===currentSong[0].id)
+      {
+        return {...item, active:!item.active}
+      }else{
+        return {...item,active:false};
+      }
+    });
+    setSongs(filteredSongs);
+    setCurrentSong([{...currentSong[0], active:!currentSong[0].active}]);
+  }
   return (
     <header>
       <article className="container h-100">
@@ -74,11 +85,11 @@ const getBack=()=>{
                 <h2>{currentSong[0].artist}</h2>
               </section>
               <span
-                onClick={() => setFavorite(!favorite)}
+                onClick={addToFavList}
                 className="btn"
                 style={{ border: "none", color: "white" }}
               >
-                {favorite ? <BsStarFill size="2rem" /> : <BsStar size="2rem" />}
+                {currentSong[0].active ? <BsStarFill size="2rem" /> : <BsStar size="2rem" />}
 
                 {/* <svg
                   xmlns="http://www.w3.org/2000/svg"
