@@ -2,6 +2,10 @@ import { useState } from "react";
 import logo from "./../assets/img/right-img.jpg";
 import musicImg from "./../assets/img/image-background1.jpg";
 import { IconName } from "react-icons/fa";
+  import { ToastContainer, toast } from "react-toastify";
+  import "react-toastify/dist/ReactToastify.css";
+
+
 import { BsStar, BsStarFill } from "react-icons/bs";
 
 
@@ -39,9 +43,15 @@ const getBack=()=>{
     });
     setSongs(filteredSongs);
     setCurrentSong([{...currentSong[0], active:!currentSong[0].active}]);
+    if(!currentSong[0].active){
+      toast.success("Added To Favorite Songs!!")
+    }else{
+      toast.warning("Deleted From Favorite Songs!!")
+    }
   }
   return (
     <header>
+      <ToastContainer/>
       <article className="container h-100">
         <article className="h-100 d-flex align-items-center ">
           <section

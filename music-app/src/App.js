@@ -72,7 +72,7 @@ function App() {
           <section className="col-md-4 px-0">
             <SideBar />
           </section>
-          <section className="col-md-8 overflow-scroll px-0">
+          <section className="col-md-8  px-0">
             <Main
               songs={songs}
               currentSong={currentSong}
