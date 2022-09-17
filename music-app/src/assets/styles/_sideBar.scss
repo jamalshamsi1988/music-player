@@ -1,32 +1,39 @@
-aside{
-    background-color: rgb(78, 76, 76);
-    border-radius: 0 0 3rem 0;
-nav{
-
-    ul{
-        list-style: none;
-        padding: 0;
-        li{
-        a{
+aside {
+  background-color: rgb(78, 76, 76);
+  border-radius: 0 0 3rem 0;
+  nav {
+    ul {
+      list-style: none;
+      padding: 0;
+      li {
+        a {
             display: block;
-            padding: .5rem 0;
-            &:hover{
-                svg{
-
-                    fill: rgb(13, 221, 228)!important ;
-                }
-
-            }
-            svg{
-                transform: scale(1.5);
-               
-            }
-            span{
-                padding: 0 1rem;
-                font-size: 1.5rem;
+            padding: 0.5rem 0;
+            text-decoration: none;
+            color: #fff ;
+           
+          }
+           a.active {
+                span,svg {
+            
+              color: aqua;
+              
             }
         }
+          &:hover {
+            svg {
+              fill: rgb(13, 221, 228) !important ;
+            }
+          }
+          svg {
+            transform: scale(1.5);
+          }
+          span {
+            padding: 0 1rem;
+            font-size: 1.5rem;
+          }
+        }
+      }
     }
-}
-}
-}
+  }
+

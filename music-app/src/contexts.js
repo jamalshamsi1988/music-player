@@ -31,8 +31,8 @@ const Contexts = ({ children }) => {
       active: false,
     },
   ]);
-  const [songCurrentTime, setSongCurrentTime] = useState(0);
-  const [songFullTime, setSongFullTime] = useState(0);
+  const [songCurrentTime, setSongCurrentTime] = useState();
+  const [songFullTime, setSongFullTime] = useState();
   
 
   return (

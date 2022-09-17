@@ -5,7 +5,9 @@ import Contexts from "./contexts";
 import { myContexts } from './contexts';
 
 import AboutUs from "./Components/AboutUs";
-import {Routes, Route } from "react-router-dom";
+import ContactUs from "./Components/ContactUs"
+import { Routes, Route } from "react-router";
+
 
 
 
@@ -14,16 +16,15 @@ function App() {
   
 
   return (
-    
-      <Contexts>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Main/>} />
-            <Route  path="/about" element={<AboutUs/>} />
-          </Routes>
-        </Layout>
-      </Contexts>
-    
+    <Contexts>
+      <Layout>
+        <Routes>
+          <Route exact path="/" element={<Main />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/contact" element={<ContactUs />} />
+        </Routes>
+      </Layout>
+    </Contexts>
   );
 }
 
