@@ -1,15 +1,18 @@
-import { useState } from "react";
+import { useState,useContext } from "react";
 import logo from "./../assets/img/right-img.jpg";
 import musicImg from "./../assets/img/image-background1.jpg";
 import { IconName } from "react-icons/fa";
   import { ToastContainer, toast } from "react-toastify";
   import "react-toastify/dist/ReactToastify.css";
+  import { myContexts } from './../contexts';
 
 
 import { BsStar, BsStarFill } from "react-icons/bs";
 
 
-const Header = ({ audioHandler, setAudioHandler,setCurrentSong, currentSong ,songFullTime,songCurrentTime ,audioRef ,songs,setSongs }) => {
+const Header = () => {
+
+  const { audioHandler, setAudioHandler,setCurrentSong, currentSong ,songFullTime,songCurrentTime ,audioRef ,songs,setSongs }=useContext(myContexts)
 
   const [favorite,setFavorite]=useState(false);
 

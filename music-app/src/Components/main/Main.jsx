@@ -1,10 +1,13 @@
 import MusicItem from "./MusicItem";
 import { memo } from 'react';
+import { useContext } from 'react';
+import { myContexts } from './../../contexts';
 
 
 
 
-const Main = ({ currentSong, setCurrentSong, songs, audioHandler }) => {
+const Main = () => {
+  const { currentSong, setCurrentSong, songs, audioHandler }=useContext(myContexts);
   return (
     <main>
       {songs.map((item) => (
