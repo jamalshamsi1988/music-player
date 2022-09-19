@@ -10,9 +10,9 @@ import { IconName } from "react-icons/fa";
 import { BsStar, BsStarFill } from "react-icons/bs";
 
 
-const Header = () => {
+const Header = ({audioRef}) => {
 
-  const { audioHandler, setAudioHandler,setCurrentSong, currentSong ,songFullTime,songCurrentTime ,audioRef ,songs,setSongs }=useContext(myContexts)
+  const { audioHandler, setAudioHandler,setCurrentSong, currentSong ,songFullTime,songCurrentTime ,songs,setSongs}=useContext(myContexts)
 
   const [favorite,setFavorite]=useState(false);
 
@@ -54,7 +54,7 @@ const getBack=()=>{
   }
   return (
     <header>
-      <ToastContainer/>
+      <ToastContainer />
       <article className="container h-100">
         <article className="h-100 d-flex align-items-center ">
           <section
@@ -71,7 +71,6 @@ const getBack=()=>{
                 height="100"
                 fill="currentColor"
                 viewBox="0 0 16 16"
-                
               >
                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                 <path d="M5 6.25a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5zm3.5 0a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5z" />
@@ -102,7 +101,11 @@ const getBack=()=>{
                 className="btn"
                 style={{ border: "none", color: "white" }}
               >
-                {currentSong[0].active ? <BsStarFill size="2rem" /> : <BsStar size="2rem" />}
+                {currentSong[0].active ? (
+                  <BsStarFill size="2rem" />
+                ) : (
+                  <BsStar size="2rem" />
+                )}
 
                 {/* <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -120,19 +123,23 @@ const getBack=()=>{
                 <span className="current-time">
                   {setCleanTime(songCurrentTime)}
                 </span>
-                <span className="full-time">{songFullTime ?setCleanTime(songFullTime) : "0:00"}</span>
+                <span className="full-time">
+                  {songFullTime ? setCleanTime(songFullTime) : "0:00"}
+                </span>
               </section>
-
-              <input
-                className="w-100 btn"
-                type="range"
-                min={0}
-                max={songFullTime}
-                value={songCurrentTime}
-                onChange={(e) =>
-                  (audioRef.current.currentTime = e.target.value)
-                }
-              />
+              <section className="range-slider">
+                <section className="progress" style={{width: `${(songCurrentTime / songFullTime)*100}%`}}></section>
+                <input
+                  className="w-100 btn"
+                  type="range"
+                  min={0}
+                  max={songFullTime}
+                  value={songCurrentTime}
+                  onChange={(e) =>
+                    audioRef.current.currentTime = e.target.value
+                  }
+                />
+              </section>
             </section>
             <section className="music-nav">
               <button className="btn" onClick={getBack}>

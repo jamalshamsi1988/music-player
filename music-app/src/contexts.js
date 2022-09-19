@@ -3,17 +3,16 @@ import musicList from "./musics";
 import musicImg from "./assets/img/image-background1.jpg";
 
 export const myContexts = createContext({
-  songs:"",
-  setSongs:"",
-  audioHandler:"",
-  setAudioHandler:"",
-  currentSong:"",
-  setCurrentSong:"",
-  songCurrentTime:"",
-  setSongCurrentTime:"",
-  songFullTime:"",
-  setSongFullTime:"",
-  
+  songs: "",
+  setSongs: "",
+  audioHandler: "",
+  setAudioHandler: "",
+  currentSong: "",
+  setCurrentSong: "",
+  songCurrentTime: "",
+  setSongCurrentTime: "",
+  songFullTime: "",
+  setSongFullTime: "",
 });
 
 
@@ -31,8 +30,8 @@ const Contexts = ({ children }) => {
       active: false,
     },
   ]);
-  const [songCurrentTime, setSongCurrentTime] = useState();
-  const [songFullTime, setSongFullTime] = useState();
+  const [songCurrentTime, setSongCurrentTime] = useState(0);
+  const [songFullTime, setSongFullTime] = useState(0);
   
 
   return (
